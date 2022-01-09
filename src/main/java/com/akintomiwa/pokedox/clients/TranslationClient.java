@@ -16,7 +16,7 @@ import static com.akintomiwa.pokedox.helpers.URLResources.TRANSLATE;
 import static com.akintomiwa.pokedox.services.chainprocessors.TranslationChain.decideTranslation;
 
 @Component
-public class TranslationClient extends BaseClient {
+public class TranslationClient{
 
     private final WebClient webClient;
     private final MessageHelperService messageHelperService;

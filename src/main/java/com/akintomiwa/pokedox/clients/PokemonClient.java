@@ -2,16 +2,20 @@ package com.akintomiwa.pokedox.clients;
 
 import com.akintomiwa.pokedox.dtos.PokemonDetailsResponse;
 import com.akintomiwa.pokedox.dtos.PokemonDetailsResponseBody;
+import com.akintomiwa.pokedox.exception.ExternalServerException;
+import com.akintomiwa.pokedox.exception.NotFoundException;
 import com.akintomiwa.pokedox.helpers.MessageHelperService;
 import com.akintomiwa.pokedox.helpers.URLResources;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import static com.akintomiwa.pokedox.helpers.URLResources.V2_GET_POKEMON;
 
 @Component
-public class PokemonClient extends BaseClient {
+public class PokemonClient {
 
     private final WebClient webClient;
 
@@ -34,4 +38,12 @@ public class PokemonClient extends BaseClient {
         return new PokemonDetailsResponse(pokemonDetails);
     }
 
+    public WebClient.ResponseSpec handleRequest(WebClient.ResponseSpec responseSpec, String exceptionMessage) {
+        return responseSpec.
+                onStatus(httpStatus -> httpStatus.value() == HttpStatus.NOT_FOUND.value(),
+                        clientResponse -> Mono.error(new NotFoundException(exceptionMessage)))
+                .onStatus(httpStatus -> httpStatus.value() == HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                        clientResponse -> Mono.error(new ExternalServerException()));
+
+    }
 }
