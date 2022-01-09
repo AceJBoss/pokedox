@@ -4,6 +4,7 @@ import com.akintomiwa.pokedox.dtos.PokemonDetailsResponse;
 import com.akintomiwa.pokedox.dtos.TranslatorResponse;
 import com.akintomiwa.pokedox.exception.ExternalServerException;
 import com.akintomiwa.pokedox.helpers.MessageHelperService;
+import com.akintomiwa.pokedox.helpers.URLResources;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -17,12 +18,11 @@ import static com.akintomiwa.pokedox.services.chainprocessors.TranslationChain.d
 @Component
 public class TranslationClient extends BaseClient {
 
-    private static final String BASEURL = "https://api.funtranslations.com";
     private final WebClient webClient;
     private final MessageHelperService messageHelperService;
 
     public TranslationClient(WebClient.Builder webClientBuilder, MessageHelperService messageHelperService) {
-        this.webClient = webClientBuilder.baseUrl(BASEURL).build();
+        this.webClient = webClientBuilder.baseUrl(URLResources.TRANSLATION_CLIENT_URL).build();
         this.messageHelperService = messageHelperService;
     }
 

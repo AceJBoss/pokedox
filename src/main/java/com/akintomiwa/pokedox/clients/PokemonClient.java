@@ -3,6 +3,7 @@ package com.akintomiwa.pokedox.clients;
 import com.akintomiwa.pokedox.dtos.PokemonDetailsResponse;
 import com.akintomiwa.pokedox.dtos.PokemonDetailsResponseBody;
 import com.akintomiwa.pokedox.helpers.MessageHelperService;
+import com.akintomiwa.pokedox.helpers.URLResources;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -12,13 +13,12 @@ import static com.akintomiwa.pokedox.helpers.URLResources.V2_GET_POKEMON;
 @Component
 public class PokemonClient extends BaseClient {
 
-    private static final String BASEURL = "https://pokeapi.co";
     private final WebClient webClient;
 
     private final MessageHelperService messageHelperService;
 
     public PokemonClient(WebClient.Builder webClientBuilder, MessageHelperService messageHelperService) {
-        this.webClient = webClientBuilder.baseUrl(BASEURL).build();
+        this.webClient = webClientBuilder.baseUrl(URLResources.POKEMON_CLIENT_URL).build();
         this.messageHelperService = messageHelperService;
     }
 
