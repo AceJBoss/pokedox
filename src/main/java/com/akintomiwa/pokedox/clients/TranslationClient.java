@@ -26,7 +26,6 @@ public class TranslationClient extends BaseClient {
         this.messageHelperService = messageHelperService;
     }
 
-    @CacheEvict(cacheNames = "pokemons", key = "#pokemonDetailsResponse.name")
     @Cacheable(cacheNames = "translations", key = "#pokemonDetailsResponse.name")
     public String getTranslatedDescription(PokemonDetailsResponse pokemonDetailsResponse) {
         TranslatorResponse translatorResponse = translate(pokemonDetailsResponse);
