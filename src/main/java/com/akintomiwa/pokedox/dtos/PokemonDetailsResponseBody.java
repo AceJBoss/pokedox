@@ -14,10 +14,10 @@ public class PokemonDetailsResponseBody {
 
     private String name;
     private Habitat habitat;
-    private Integer id;
+    private int id;
 
     @JsonAlias("is_legendary")
-    private Boolean isLegendary;
+    private boolean isLegendary;
 
     @JsonAlias("flavor_text_entries")
     private List<FlavorTextEntriesItem> flavorTextEntriesItems;
