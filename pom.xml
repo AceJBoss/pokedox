@@ -155,6 +155,8 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <finalName>pokedox-application</finalName>
     </build>
 
 </project>
