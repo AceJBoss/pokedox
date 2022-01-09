@@ -15,7 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static com.michaeladonis.pokedox.util.TestContants.YODA_TRANSLATION;
+import static com.michaeladonis.pokedox.util.TestURLResources.YODA_TRANSLATION;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.doReturn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

@@ -1,6 +1,6 @@
 package com.michaeladonis.pokedox.util;
 
-public class TestContants {
+public class TestURLResources {
     public static final String POKEMON_DESCRIPTION = "It was created by a scientist after years of horrific gene splicing and DNA engineering experiments.";
     public static final String YODA_TRANSLATION = "Created by a scientist after years of horrific gene splicing and dna engineering experiments,  it was.";
 
