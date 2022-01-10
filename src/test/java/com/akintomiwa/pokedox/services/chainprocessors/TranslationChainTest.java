@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.akintomiwa.pokedox.helpers.URLResources.*;
 import static com.akintomiwa.pokedox.services.chainprocessors.TranslationChain.decideTranslation;
-import static com.michaeladonis.pokedox.util.TestURLResources.POKEMON_DESCRIPTION;
+import static com.akintomiwa.pokedox.util.TestURLResources.POKEMON_DESCRIPTION;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TranslationChainTest {

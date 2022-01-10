@@ -7,9 +7,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class PokemonDetailsResponse {
 
+    private String habitat;
     private String name;
     private String description;
-    private String habitat;
     private Boolean isLegendary;
 
     public PokemonDetailsResponse(PokemonDetailsResponseBody responseBody) {
@@ -27,9 +27,9 @@ public class PokemonDetailsResponse {
     }
 
     private void initializeRequiredFields(PokemonDetailsResponseBody responseBody) {
-        this.name = responseBody.getName();
         this.habitat = responseBody.getHabitat().getName();
-        this.isLegendary = responseBody.getIsLegendary();
+        this.name = responseBody.getName();
+        this.isLegendary = responseBody.isLegendary();
     }
 }
 

@@ -12,8 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class PokemonDetailsResponseBody {
 
-    private String name;
     private Habitat habitat;
+    private String name;
     private int id;
 
     @JsonAlias("is_legendary")

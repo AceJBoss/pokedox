@@ -20,7 +20,7 @@ import javax.validation.constraints.NotBlank;
 @RequestMapping("pokemon")
 @Api(tags = {"Pokedox Controller"})
 @SwaggerDefinition(tags = {
-        @Tag(name = "Pokemon", description = "Fetches details about a pokemon")
+        @Tag(name = "Pokemon", description = "Get details about a pokemon")
 })
 public class PokedoxController {
 
